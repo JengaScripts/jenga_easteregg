@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body>
+    <div id="app" v-if="nui"> 
+        <div class="bg"> 
+            <div class="leaderBoard" v-if="page == 1">
+                <img src="./assets/img/logo.png">
+                <div class="board">
+                    <div class="players main" style="top: 1%; margin-bottom: 50px;">
+                        <h1>Name</h1>
+                        <div class="huntedEggText" style="display: inline-block;">
+                            <img src="/assets/img/egg.svg">
+                            <h1>Total Hunted Egg</h1>
+                        </div>
+                        <h1 style="float: right;">Point</h1>
+                    </div>
+                    
+                    <div class="players main" v-for="(item, index) in leaderboard">
+                        <h1># {{ index + 1 }}</h1>
+                        <h1 class="name">{{ item.name }}</h1>
+                        <div class="huntedEggText" style="display: inline-block; left: 32%;">
+                            <img src="/assets/img/egg.svg">
+                            <h1>{{ item.openedEgg }}</h1>
+                        </div>
+                        <h1 style="float: right;">{{ item.point }}</h1>
+                    </div>
+                    
+                </div>
+                <div class="close" @click="close()">X</div>
+            </div>
+    
+            <div class="easterPass" v-if="page == 2">
+                <img src="./assets/img/easterpass.png">
+
+                <div class="container">
+                    <h1 class="leftSide" >LVL {{ level }}</h1>
+                    <p class="level">YOUR LEVEL</p>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" id="my-progress-bar" :style="{ width: percentage + '%' }"></div>
+                    </div>
+                    <p class="percent">{{ percentage }}%</p>
+                    <h1 class="rightSide" style="float: right;">LVL {{ level + 1}}</h1>
+                </div>
+
+                <div class="presents">
+                    <div class="block" v-for="(item, index) in 5">
+                        <template v-if="levels[level].rewards[index].type == 'car'">
+                            <template v-if="levels[level].rewards[index].point <= point">
+                                <img :src="'https://raw.githubusercontent.com/MericcaN41/gta5carimages/main/images/' + levels[level].rewards[index].name + '.png'" onerror="this.src='https://www.hondacaribbeanltd.com/images/cars/colors/generic-car.png'">
+                                <p>{{ levels[level].rewards[index].name }}</p>
+                            </template>
+                            <template v-else>
+                                <img src="./assets/img/lock.png">
+                                <p>{{ levels[level].rewards[index].point - point }} point required</p>
+                            </template>
+                        </template>
+                        <template v-else-if="levels[level].rewards[index].type == 'item'">
+                            <template v-if="levels[level].rewards[index].point <= point">
+                                <img :src="'nui://' + imgPath + levels[level].rewards[index].name + '.png'">
+                                <p>{{ levels[level].rewards[index].name }}</p>
+                            </template>
+                            <template v-else>
+                                <img src="./assets/img/lock.png">
+                                <p>{{ levels[level].rewards[index].point - point }} point required</p>
+                            </template>
+                        </template>
+                        <template v-else>
+                            <template v-if="levels[level].rewards[index].point <= point">
+                                <img src="assets/img/moneyIcon.svg">
+                                <p>{{ levels[level].rewards[index].count }}$</p>
+                            </template>
+                            <template v-else>
+                                <img src="./assets/img/lock.png">
+                                <p>{{ levels[level].rewards[index].point - point }} point required</p>
+                            </template>
+                        </template>
+                    </div>
+                </div>
+                <div class="close" @click="close()">X</div>
+            </div>
+    
+            <div class="openEasterEgg" v-if="page == 3">
+                <img id="egg" v-if="isOpen" src="./assets/img/egg1.png">
+                <template v-if="currentReward.type == 'money'">
+                    <img id="reward" v-if="!isOpen" src="assets/img/moneyIcon.svg">
+                </template>
+                <template v-else-if="currentReward.type == 'car'">
+                    <img id="reward" v-if="!isOpen" :src="'https://raw.githubusercontent.com/MericcaN41/gta5carimages/main/images/' + currentReward.name + '.png'" onerror="this.src='https://www.hondacaribbeanltd.com/images/cars/colors/generic-car.png'">
+                </template>
+                <template v-else-if="currentReward.type == 'item'">
+                    <img id="reward" v-if="!isOpen" :src="'nui://' + imgPath + currentReward.name + '.png'">
+                </template>
+                
+                <button id="getReward" v-if="!isOpen" @click="close()">Get Reward</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./vue.js"></script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
+

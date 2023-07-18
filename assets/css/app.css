@@ -1,0 +1,326 @@
+@import url('https://fonts.cdnfonts.com/css/fredoka-one');
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.bg {
+	position:absolute;
+    height:100%;
+    width:100%;
+	background: url("../img/bg.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.leaderBoard img {
+	margin: 25px;
+}
+
+.board {
+	position: absolute;
+	left: 30%;
+	width: 40%;
+	height: 69.5vh;
+	overflow-x: auto;
+}
+
+.players {
+	margin: 4px;
+	width: 99%;
+	height: 100px;
+	border: 2px solid red;
+	color: #FFF;
+}
+
+.main {
+	border: 1px solid #2FD740;
+	background: radial-gradient(115.66% 110.00% at 50.00% 57.39%, rgba(50, 237, 69, 0.07) 0%, rgba(7, 7, 7, 0.00) 100%);
+}
+
+.main h1 {
+	display: inline-block;
+	color: #FFF;
+	font-family: Fredoka One;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	margin-top: 25px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.huntedEggText {
+	position: absolute;
+	width: 400px;
+}
+
+.huntedEggText img {
+	position: relative;
+	left: 15%;
+	top: 10px;
+	margin-top: 25px;
+}
+
+.huntedEggText h1{
+	position: relative;
+	left: 6%;
+	top: -15px;
+ 	text-align: center;
+}
+
+.name {
+	width: 180px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.close {
+	position: relative;
+	left: 96%;
+	top: -105px;
+	width: 45px;
+	height: 45px;
+	border: 1px solid #D7372F;
+	background: radial-gradient(115.66% 110.00% at 50.00% 57.39%, rgba(237, 58, 50, 0.35) 0%, rgba(7, 7, 7, 0.00) 100%);
+	color: white;
+	font-family: Fredoka One;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 400;
+	padding: 2px;
+	padding-left: 9px;
+}
+
+.close:hover {
+	background: radial-gradient(115.66% 110.00% at 50.00% 57.39%, rgba(237, 59, 50, 0.815) 0%, rgba(7, 7, 7, 0.00) 100%);
+	cursor: pointer;
+}
+
+.board::-webkit-scrollbar {	
+	width: 0.3em;
+	border-radius: 15px;
+}
+.board::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 15px;
+}
+.board::-webkit-scrollbar-thumb {
+	background-color: cyan;
+	outline: 1px solid cyan;
+	border-radius: 15px;
+}
+
+.easterPass img {
+	margin: 25px;
+}
+
+.container {
+	position:absolute;
+	left: 11%;
+	top: 30%;
+	width: 80%;
+}
+
+.leftSide {
+	position:absolute;
+	left: -110px;
+	top: -7px;
+	color: #FFF;
+	font-family: Fredoka One;
+	font-size: 26px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.rightSide {
+	position:absolute;
+	right: -90px;
+	top: -7px;
+	color: #FFF;
+	font-family: Fredoka One;
+	font-size: 26px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.level {
+	position:absolute;
+	left: 39%;
+	top: -70px;
+	color: white;
+	font-family: Fredoka One;
+	font-size: 56px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	background: var(--yesil, radial-gradient(115.66% 110.00% at 50.00% 57.39%, rgba(54, 255, 74, 0.50) 0%, rgba(7, 7, 7, 0.00) 100%));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.percent{
+	position:absolute;
+	left: 48.5%;
+	top: 12px;
+	color: white;
+	font-family: Fredoka One;
+	font-size: 26px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	background: var(--yesil, radial-gradient(115.66% 110.00% at 50.00% 57.39%, rgba(54, 255, 74, 0.50) 0%, rgba(7, 7, 7, 0.00) 100%));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.progress-bar {
+	width: 100%;
+	background: rgba(217, 217, 217, 0.05);
+	border-radius: 5px;
+}
+
+.progress-bar-fill {
+	height: 20px;
+	border: 1px solid var(#3C964AC2, rgba(60, 150, 74, 0.76));
+	background: var(--yesil, radial-gradient(115.66% 110.00% at 50.00% 57.39%, rgba(54, 255, 74, 0.50) 0%, rgba(7, 7, 7, 0.00) 100%));
+	width: 0%;
+	transition: width 0.5s;
+}
+
+.presents {
+	position:absolute;
+	left: 19%;
+	top: 38%;
+}
+
+.block {
+	width: 222px;
+	height: 244px;
+	border: 1px solid #D4D4D4;
+	background: radial-gradient(115.66% 110.00% at 50.00% 57.39%, rgba(232, 232, 232, 0.07) 0%, rgba(7, 7, 7, 0.00) 100%);
+	display: inline-block;
+	margin: 10px;
+}
+
+.block img {
+	width: 150px;
+	height: 100px;
+	position: relative;
+	left: 5%;
+	top: 15%;
+}
+
+.block p {
+	width: 215px;
+	position: relative;
+	top: 15%;
+	color: #FFF;
+	text-align: center;
+	font-family: Fredoka One;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	overflow: hidden;
+}
+
+@media only screen and (max-width: 1668px) {
+	.block {
+		width: 152px;
+		height: 154px;
+	}
+
+	.block img {
+		left: -8%;
+		top: -5%;
+	}
+
+	.block p {
+		top: -10%;
+		left: -15%;
+	}
+}
+
+@media only screen and (max-width: 1186px) {
+	.block {
+		width: 122px;
+		height: 124px;
+	}
+
+	.block img {
+		width: 95px;
+		height: 95px;
+		left: -8%;
+		top: -25%;
+	}
+
+	.block p {
+		top: -40%;
+		left: -40%;
+	}
+}
+
+#egg {
+	position: absolute;
+	left: 45%;
+	top: 32%;
+	animation: pulse 0.5s linear infinite;
+	transition: opacity 2s;
+}
+
+#egg {
+	display: block
+}
+
+#reward {
+	position: absolute;
+	width: 800px;
+	height: 450px;
+	left: 30%;
+	top: 25%;
+
+}
+
+#getReward {
+	position: absolute;
+	left: 49%;
+	top: 75%;
+	color: white;
+	width: 150px;
+	height: 35px;
+	border: none;
+	background: var(--yesil, radial-gradient(115.66% 110.00% at 50.00% 57.39%, rgba(54, 255, 74, 0.50) 0%, rgba(7, 7, 7, 0.00) 100%));
+}
+
+#getReward:hover {
+	background: var(--yesil, radial-gradient(115.66% 110.00% at 50.00% 57.39%, rgb(54, 255, 74) 0%, rgba(7, 7, 7, 0.00) 100%));
+	cursor: pointer;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1.0) rotate(0deg);
+	}
+	10% {
+	  	transform: scale(1.2) rotate(30deg);
+	}
+	25% {
+		transform: scale(1.4) rotate(-30deg);
+	}
+	50% {
+		transform: scale(1.6) rotate(30deg);
+	}
+	75% {
+		transform: scale(1.4) rotate(-30deg);
+	}
+	100% {
+		transform: scale(1.2) rotate(30deg);
+	}
+}
